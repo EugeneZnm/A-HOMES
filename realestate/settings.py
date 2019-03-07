@@ -33,7 +33,12 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # pages application in installed apps
     'pages.apps.PagesConfig', 
-     
+
+    # add listings app
+    'listings.apps.ListingsConfig'
+    
+    # add realtors app
+    'realtors.apps.RealtorsConfig'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
