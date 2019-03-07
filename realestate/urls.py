@@ -5,6 +5,7 @@ from pages import urls
 
 urlpatterns = [
     path('', include('pages.urls')),
+    path('listing/', include('listings.urls'))
     path('admin/', admin.site.urls),
 ]
  
