@@ -10,7 +10,7 @@ class Listing(models.Model):
     city = models.CharField(max_length=200)
     state = models.CharField(max_length=200)
     zipcode = models.CharField(max_length=200)
-    description = models.CharField(blank=True)
+    description = models.CharField(max_length=20000, blank=True)
     price = models.IntegerField()
     bedrooms = models.IntegerField()
     bathrooms = models.DecimalField(max_digits=2, decimal_places=1)
@@ -30,7 +30,7 @@ class Listing(models.Model):
     photo_10 = models.ImageField(upload_to='photos/%Y/%m/%d/',blank=True)
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
-
-    def __ str __(self):
+    
+    def __str__(self):
         return self.title
     
