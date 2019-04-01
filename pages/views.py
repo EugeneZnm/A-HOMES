@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from listings.models import Listing
 from realtors.models import Realtor
+from listings.choices import price_choices, bedroom_choices, state_choices
 # Create your views here.
 def index(request):
     # getting three published listings by date
@@ -23,7 +24,7 @@ def about(request):
     mvp = Realtor.objects.all().filter(is_mvp=True)
 
     context = {
-        'realtors': realtors,
+        'realtor': realtor,
         'mvp': mvp
     }
     return render(request, 'pages/about.html', context) 
