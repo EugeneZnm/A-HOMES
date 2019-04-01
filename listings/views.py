@@ -4,7 +4,9 @@ from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 
 # Create your views here.
 def index(request):
-    listings = Listing.objects.all()
+
+    # getting listings by order of date in descending order
+    listings = Listing.objects.order_by('-list_date')
     paginator = Paginator(listings,3)
     page = request.GET.get('page')
     pages = paginator.get_page(page)
