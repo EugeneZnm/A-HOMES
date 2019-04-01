@@ -99,7 +99,7 @@
                    </li>
                    {% endif %}
                    <!-- looping through page range -->
-                   {% for in in listings.paginator.page_range %}
+                   {% for i in listings.paginator.page_range %}
                     {% if listings.number == i %}
                         <li class="page-item active">
                             <a class="page-link">{{i}}</a>
