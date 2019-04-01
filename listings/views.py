@@ -5,8 +5,8 @@ from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 # Create your views here.
 def index(request):
 
-    # getting listings by order of date in descending order
-    listings = Listing.objects.order_by('-list_date')
+    # getting published listings by order of date in descending order
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
     paginator = Paginator(listings,3)
     page = request.GET.get('page')
     pages = paginator.get_page(page)
