@@ -37,6 +37,32 @@ def search(request):
      if keywords:
             queryset_list = queryset_list.filter(description__icontains=keywords)
 
+    # City
+
+    if 'city' in request.GET:
+        cities = request.GET['city']
+        if cities:
+            queryset_list = queryset_list.filter(city__iexact=cities)
+
+    # County
+    if 'county' in request.GET:
+        county = request.GET['county']
+        if county:
+            queryset_list = queryset_list.filter(county__iexact=county) 
+
+     # Bedrooms
+    if 'bedrooms' in request.GET:
+        bedrooms = request.GET['bedrooms']
+        if bedrooms:
+            queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)         
+
+     # pricing
+    if 'price' in request.GET:
+        price = request.GET['price']
+        if price:
+            queryset_list = queryset_list.filter(price__lte=price)                 
+
+
     paginator = Paginator(queryset_list,3)
     page = request.GET.get('page')
     pages = paginator.get_page(page)
