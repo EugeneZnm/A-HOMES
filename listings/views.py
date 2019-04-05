@@ -72,5 +72,8 @@ def search(request):
         'price_choices': price_choices,
         'bedroom_choices': bedroom_choices,
         'listings': pages,
+
+        # store search term in field after result delivery
+        'values':request.GET
     }
     return render (request, 'listings/search.html', context)
