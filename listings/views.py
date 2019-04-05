@@ -29,9 +29,15 @@ def listing(request, listing_id):
 
 def search(request):
 
+    queryset_list = Listing.objects.order_by('-list_date')
+    paginator = Paginator(queryset_list,3)
+    page = request.GET.get('page')
+    pages = paginator.get_page(page)
+
     context ={
         'county_choices': county_choices,
         'price_choices': price_choices,
         'bedroom_choices': bedroom_choices,
+        'listings': pages,
     }
     return render (request, 'listings/search.html', context)
