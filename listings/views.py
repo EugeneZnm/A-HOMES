@@ -30,6 +30,13 @@ def listing(request, listing_id):
 def search(request):
 
     queryset_list = Listing.objects.order_by('-list_date')
+
+    # keywords
+    if 'keywords' in request.GET:
+     keywords = request.GET['keywords']
+     if keywords:
+            queryset_list = queryset_list.filter(description__icontains=keywords)
+
     paginator = Paginator(queryset_list,3)
     page = request.GET.get('page')
     pages = paginator.get_page(page)
