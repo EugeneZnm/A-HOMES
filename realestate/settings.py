@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     # add accounts app
     'accounts.apps.AccountsConfig',
 
+    # add contacts app
+    'contacts.apps.ContactsConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
