@@ -27,9 +27,14 @@ def register(request):
                 else:
                      user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name ) 
                      # Login after registration  
-                     auth.login(request, user)
-                     messages.success(request, 'You are now logged in')
-                     return redirect('index')
+                    #  auth.login(request, user)
+                    #  messages.success(request, 'You are now logged in')
+                    #  return redirect('index')
+
+                    #  redirect to login page after registration
+                     user.save()
+                     messages.success(request, 'You are now registered')
+                     return redirect('login')
         else:
             messages.error(request, 'Passwords do not match')
 
