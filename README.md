@@ -85,7 +85,7 @@ Set the configuration to production mode
 ## Live Demo
 
 The web app can be accessed from the following link: 
-[Majirani](https://majirani.herokuapp.com/)
+
 
 
 ## Technology used
